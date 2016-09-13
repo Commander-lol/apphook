@@ -1,0 +1,10 @@
+.idea
+node_modules
+last-hook.json
+config.json
+
+hooks/*
+!hooks/index.js
+
+log
+*.log

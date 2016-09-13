@@ -1,0 +1,23 @@
+{
+  "name": "apphook",
+  "version": "0.1.0",
+  "description": "Simple github webhooks",
+  "main": "apphook.js",
+  "scripts": {
+    "start": "node apphook.js",
+    "dev": "nodemon apphook.js"
+  },
+  "keywords": [],
+  "author": "Louis Capitanchik",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "file-stream-rotator": "0.0.7",
+    "fs-jetpack": "^0.9.2",
+    "gitane": "^0.3.2",
+    "lineup-template": "^1.0.0",
+    "morgan": "^1.7.0",
+    "nodegit": "^0.14.1"
+  }
+}
