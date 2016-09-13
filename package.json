@@ -15,6 +15,6 @@
     "express": "^4.14.0",
     "file-stream-rotator": "0.0.7",
     "lineup-template": "^1.0.0",
-    "morgan": "^1.7.0",
+    "morgan": "^1.7.0"
   }
 }
