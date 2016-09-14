@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Apphook by Commander-lol</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Apphook</h1>
+        <h2>Simple Github Deploy Server</h2>
+        <a href="https://github.com/Commander-lol/apphook" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="apphook" class="anchor" href="#apphook" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>apphook</h1>
+
+<p>Simple Github Deploy Server</p>
+
+<h3>
+<a id="wut" class="anchor" href="#wut" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Wut?</h3>
+
+<p>Sometimes you need to do things on your server when other people do other things on Github. This lets you do that.</p>
+
+<p>Real documentation coming soon</p>
+
+<h3>
+<a id="how-to" class="anchor" href="#how-to" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How To</h3>
+
+<p>So you want some apphooks? It's pretty simple;</p>
+
+<ol>
+<li>Clone this repository to your server - <code>git clone https://github.com/Commander-lol/apphook</code>
+</li>
+<li>Make a copy of <code>config.example.json</code> called <code>config.json</code>
+</li>
+<li>Create a file in <code>/hooks</code> that exports some JSON that describes what you're doing. The only hard and fast requirement 
+is an array keyed by <code>hooks</code> - this specifies what plugins to run when this hook gets fired. Any top level strings can 
+also include environment variables by surrounding them with <code>%</code>s (e.g. <code>$HOME</code> would be <code>%HOME%</code>...it's a 
+<a href="https://github.com/Commander-lol/lineup">lineup</a> template)</li>
+<li>Write some plugins in the <code>/plugins</code> folder to do stuff. A plugin should export a function that takes as its parameters
+the configuration file that triggered it (so set up some other properties in that config file, silly!) and the github
+webhook payload. It should <strong>ALWAYS</strong> return a promise. Coming soon will be a facility to wrap non-promise returns 
+from those silly people that don't like playing nicely with the other kids</li>
+<li>Do your funky thing to run a node app on your server (<code>npm start</code> or <code>node apphook</code>). It's different for everyone, 
+it's all good.</li>
+<li>On your github repo, add a webhook (<code>Settings</code> &gt; <code>Webhooks &amp; services</code> &gt; <code>Add Webhook</code>) where the url is 
+<code>http(s)://my.domain.com/{hook}</code> where <code>{hook}</code> is the name of the file you created in <code>/hooks</code> 
+(without the extension - just make sure it's something your node engine can <code>require</code>)</li>
+<li>Do some stuff with your repo</li>
+<li>Party!</li>
+</ol>
+
+<h3>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h3>
+
+<p>There isn't currently an example hook config, but there is an example plugin.</p>
+
+<p><code>git-pull</code> resets and then pulls the git repo in the specified path. In the config you need to specify the <code>path</code> to
+the folder containing the repo, and optionally a <code>remote</code> and <code>branch</code> to reset, checkout and pull</p>
+
+<h3>
+<a id="licensing" class="anchor" href="#licensing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Licensing</h3>
+
+<p>This code is covered under the BSD-3-Clause license, but if that doesn't work with your flow then contact me and we
+can probably work something out</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/Commander-lol/apphook/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/Commander-lol/apphook/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/Commander-lol/apphook"></a> is maintained by <a href="https://github.com/Commander-lol">Commander-lol</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
