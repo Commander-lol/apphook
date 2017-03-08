@@ -5,9 +5,12 @@
 	},
 	"extends": "eslint:recommended",
 	"rules": {
-		"indent": [2, "tab"],
+		"indent": [2, "tab", { "SwitchCase": 1 }],
 		"linebreak-style": [2, "unix"],
 		"quotes": [2, "single"],
 		"semi": [2, "never"]
+	},
+	"globals": {
+		"env": true
 	}
 }

@@ -4,11 +4,13 @@ const morgan = require('morgan')
 const FileStreamRotator = require('file-stream-rotator')
 const body = require('body-parser')
 
-const { port } = require('./config')
+require('dotenv').load()
 
-process.on('unhandledException', console.log.bind(console))
+global.env = (key, def = null) => (process.env[key] == null || process.env[key] === '') ? def : process.env[key]
 
-const handler = require('./lib/HookHandler')
+process.on('unhandledException', console.error.bind(console))
+
+const port = env('PORT', 9123)
 
 const app = express()
 
@@ -31,7 +33,9 @@ const app = express()
 
 app.use(body.json())
 
+const handler = require('./lib/HookHandler')
 app.use(/(.*)/, handler)
 
 app.listen(port)
+
 console.log(`apphooker hooking along on http://localhost:${port}`)

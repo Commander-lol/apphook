@@ -3,7 +3,11 @@ module.exports = new Proxy({}, {
 		let c = null
 		try {
 			c = require(`./${hook}`)
-		} catch(e) {} // eslint-disable-line no-empty
+		} catch(e) {
+			if (!e.startsWith('Module not found')) {
+				throw e
+			}
+		}
 		return c
 	}
 })

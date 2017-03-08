@@ -7,7 +7,7 @@ module.exports = ({path, remote = 'origin', branch = 'master'}, hook) => new Pro
 			cwd: path
 		},
 		e => e ? re(e) : child.exec(
-			`git checkout ${remote} ${branch} && git pull ${remote} ${branch}`,
+			`git checkout ${remote}/${branch} && git pull ${remote} ${branch}`,
 			{
 				cwd: path
 			},
